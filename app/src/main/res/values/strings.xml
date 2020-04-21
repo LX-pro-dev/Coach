@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Coach</string>
+    <string name="homme">Homme</string>
+    <string name="femme">Femme</string>
+    <string name="taille">Taille</string>
+    <string name="poids">Poids</string>
+    <string name="todo">TODO</string>
+    <string name="calculer">Calculer</string>
+</resources>
