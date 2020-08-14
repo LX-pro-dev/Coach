@@ -4,9 +4,10 @@ import android.content.Context;
 import android.util.Log;
 
 import com.gauthier.coach.modele.AccesDistant;
-import com.gauthier.coach.modele.Profil;//besoin d'accéder à profil qui ne fait pas partie du même package
+import com.gauthier.coach.modele.Profil;
 import com.gauthier.coach.outils.Serializer;
 import com.gauthier.coach.vue.CalculActivity;
+import com.gauthier.coach.vue.HistoActivity;
 
 import org.json.JSONArray;
 
@@ -23,7 +24,7 @@ public final class Controle {//on ne veut pas créer plus de une instance
     private static Controle instance=null;//accessible par la classe
     private static Profil profil;
     private static String nomFichier="saveprofil";
-    //private static AccesLocal accesLocal;
+    //private static AccesLocal accesLocal;//pr accèder à l'objet accesLocal
     private static AccesDistant accesDistant;
     private static Context contexte;
     private ArrayList<Profil> lesProfils=new ArrayList<Profil>();
@@ -87,9 +88,16 @@ public final class Controle {//on ne veut pas créer plus de une instance
         accesDistant.envoi("del",profil.convertToJSONArray());
         lesProfils.remove(profil);
     }
+
+    /**
+     *
+     * @param profil
+     */
     public void setProfil(Profil profil){
         Controle.profil=profil;
-        ((CalculActivity)contexte).recupProfil();
+        if(contexte instanceof CalculActivity){//crash si on ne le met pas !!!
+            ((CalculActivity)contexte).recupProfil();
+        }
     }
 
     /**

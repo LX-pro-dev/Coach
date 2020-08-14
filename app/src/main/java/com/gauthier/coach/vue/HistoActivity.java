@@ -67,10 +67,10 @@ public class HistoActivity extends AppCompatActivity {
      * @param profil
      */
     public void afficheProfil(Profil profil){
-        controle.setProfil(profil);
+
         Intent intent = new Intent(HistoActivity.this, CalculActivity.class);
         intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-
+        controle.setProfil(profil);
     }
 }

@@ -155,7 +155,7 @@ public class CalculActivity extends AppCompatActivity {
             }
             //remettre à vide le profil
             controle.setProfil(null);
-            //simulation du click sur le bouton calcul
+            //simulation du click sur le bouton calcul// le pb c'est qu'avec SQLite on enregistre à nouveau le dernier profil enregistré
            // ((Button)findViewById(R.id.btnCalc)).performClick();
         }
     }

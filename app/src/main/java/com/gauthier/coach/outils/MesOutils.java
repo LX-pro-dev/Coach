@@ -46,11 +46,11 @@ public abstract class MesOutils {
     }
 
     /**
-     * retourne un flaot au format string avec 1 chiffre après la virgule
+     * retourne un float au format string avec 2 chiffres après la virgule
      * @param valeur
      * @return
      */
     public static String format2decimal(float valeur){
-        return String.format("%.01",valeur);
+        return String.format("%.01f",valeur);
     }
 }

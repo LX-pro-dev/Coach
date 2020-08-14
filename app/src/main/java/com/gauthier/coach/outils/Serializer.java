@@ -1,7 +1,6 @@
 package com.gauthier.coach.outils;
 
 import android.content.Context;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -69,6 +68,6 @@ public abstract class Serializer {
            // fichier non trouvé
            e.printStackTrace();
        }
-       return null;//si on n'a pas récupéré l'objet on nrenvoie null
+       return null;//si on n'a pas récupéré l'objet, on renvoie null
    }
 }

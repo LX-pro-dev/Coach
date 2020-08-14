@@ -1,11 +1,11 @@
 package com.gauthier.coach.modele;
 
+
 import androidx.annotation.NonNull;
 
 import com.gauthier.coach.outils.MesOutils;
 
 import org.json.JSONArray;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Alexandre GAUTHIER on 02/04/2020.
  */
-public class Profil extends Date implements Serializable, Comparable{
+public class Profil implements Serializable, Comparable {
 
     //constantes
     private static final Integer minFemme= 15; //maigre en dessous
@@ -32,6 +32,7 @@ public class Profil extends Date implements Serializable, Comparable{
     private Integer sexe;
     private float img;
     private String message;
+
 
 
 
@@ -110,7 +111,7 @@ public class Profil extends Date implements Serializable, Comparable{
      * @return
      */
     public JSONArray convertToJSONArray(){
-        List laListe= new ArrayList();
+        List<Serializable> laListe= new ArrayList<>();
         laListe.add(MesOutils.convertDateToString(dateMesure));
         laListe.add(poids);
         laListe.add(taille);
@@ -121,7 +122,7 @@ public class Profil extends Date implements Serializable, Comparable{
 
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(@NonNull Object o) {
         return dateMesure.compareTo(((Profil)o).getDateMesure());
     }
 }

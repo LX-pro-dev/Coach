@@ -20,22 +20,22 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
 
     // propriétés
     public String ret=""; // information retournée par le serveur
-    public AsyncResponse delegate=null; // gestion du retour asynchrone
-    private String parametres = ""; // paramètres à envoyer en POST au serveur
+    public AsyncResponse delegate=null; // gestion du retour asynchrone pour pouvoir appeler une méthode en dehors du thread
+    private String parametres = ""; // paramètres à envoyer en POST au serveur  //modif / vidéo
 
     /**
      * Constructeur : ne fait rien
      */
     public AccesHTTP() {
         super();
-    }
+    }//modif / vidéo on instanticeait un Arraylist parametres
 
     /**
      * Construction de la chaîne de paramètres à envoyer en POST au serveur
      * @param nom
      * @param valeur
      */
-    public void addParam(String nom, String valeur) {
+    public void addParam(String nom, String valeur) {//modif / vidéo 10')
         try {
             if (parametres.equals("")) {
                 // premier paramètre
@@ -50,20 +50,21 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long> {
     }
 
     /**
+     * connexion en tache de fond en thread sépraé
      * Méthode appelée par la méthode execute
      * permet d'envoyer au serveur une liste de paramètres en GET
      * @param urls contient l'adresse du serveur dans la case 0 de urls
      * @return null
      */
     @Override
-    protected Long doInBackground(String... urls) {
+    protected Long doInBackground(String... urls) {//modifié / vidéo
 
         // pour éliminer certaines erreurs
         System.setProperty("http.keepAlive", "false");
         // objets pour gérer la connexion, la lecture et l'écriture
         PrintWriter writer = null;
         BufferedReader reader = null;
-        HttpURLConnection connexion = null;
+        HttpURLConnection connexion;
 
         try {
             // création de l'url à partir de l'adresse reçu en paramètre, dans urls[0]

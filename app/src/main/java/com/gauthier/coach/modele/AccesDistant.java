@@ -18,9 +18,10 @@ import java.util.Date;
  * Created by Alexandre GAUTHIER on 09/04/2020.
  */
 public class AccesDistant implements AsyncResponse {
-    //constante
-    private static final String SERVERADDR = "http://192.168.1.6/coach/serveurcoach.php";//au lieu de /coach/serveurcoach.php"
+    //constantes
+    private static final String SERVERADDR = "http://alexdev.coachapp.secondlab.net/serveurcoach.php";
     private Controle controle;
+
     /**
      * constructeur
      */
@@ -66,7 +67,7 @@ public class AccesDistant implements AsyncResponse {
                         Log.d("tous", message[1] + "******************");
                         try {
                             JSONArray jsonInfo = new JSONArray(message[1]);
-                            ArrayList<Profil> lesProfils = new ArrayList<Profil>();
+                            ArrayList<Profil> lesProfils = new ArrayList<>();
                             for(int i=0;i<jsonInfo.length();i++){
                                 JSONObject info= new JSONObject(jsonInfo.get(i).toString());
                                 Integer poids= info.getInt("poids");
